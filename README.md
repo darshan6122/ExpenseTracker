@@ -13,15 +13,12 @@ A personal finance iOS app to help you track expenses, manage budgets, and analy
 - **Settings:** Customize app preferences.
 - **SwiftUI Interface:** Modern, responsive UI built with SwiftUI.
 
-## Screenshots
-
-*(Add screenshots here if you have them!)*
 
 ## Getting Started
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-username/ExpenseTracker.git
+   git clone https://github.com/darshan6122/ExpenseTracker.git
    ```
 2. **Open in Xcode:**
    - Open `ExpenseTracker.xcodeproj` in Xcode.
