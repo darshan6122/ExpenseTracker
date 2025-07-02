@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CDAccount" representedClassName="CDAccount" syncable="YES" codeGenerationType="class">
+        <attribute name="balance" optional="NO" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="createdAt" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="identifier" optional="NO" attributeType="String"/>
+        <attribute name="name" optional="NO" attributeType="String"/>
+        <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDExpense" inverseName="account" inverseEntity="CDExpense"/>
+        <relationship name="recurringExpenses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDRecurringExpense" inverseName="account" inverseEntity="CDRecurringExpense"/>
+    </entity>
+    <entity name="CDBudget" representedClassName="CDBudget" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="NO" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="NO" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="name" optional="NO" attributeType="String"/>
+        <attribute name="period" optional="NO" attributeType="String"/>
+        <attribute name="startDate" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="CDExpense" representedClassName="CDExpense" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="NO" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="category" optional="NO" attributeType="String"/>
+        <attribute name="date" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="expenseDescription" optional="NO" attributeType="String"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isRecurring" optional="NO" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="receiptImageURL" optional="YES" attributeType="URI"/>
+        <relationship name="account" optional="NO" maxCount="1" deletionRule="Nullify" destinationEntity="CDAccount" inverseName="expenses" inverseEntity="CDAccount"/>
+    </entity>
+    <entity name="CDRecurringExpense" representedClassName="CDRecurringExpense" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="NO" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="category" optional="NO" attributeType="String"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="expenseDescription" optional="NO" attributeType="String"/>
+        <attribute name="frequency" optional="NO" attributeType="String"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastProcessedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="startDate" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="account" optional="NO" maxCount="1" deletionRule="Nullify" destinationEntity="CDAccount" inverseName="recurringExpenses" inverseEntity="CDAccount"/>
+    </entity>
+</model> 
